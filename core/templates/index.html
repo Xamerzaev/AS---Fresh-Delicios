@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -56,6 +57,11 @@
 					<li><a href="#welcome">About</a></li>
 					<li><a href="#our-menus">Menu</a></li>
 					<li><a href="#events">Events</a></li> 
+					{% if user.is_authenticated %}
+					<p>Welcome {{ user.username }} !!!</p>
+					{% else %}
+					<li><a href="{% provider_login_url 'github' %}">Sign Up</a></li>
+					{% endif %}
 					<li class="menu-item-has-children">
 						<a href="#blog">Blog</a>
 						<ul class="sub-menu">
