@@ -40,26 +40,24 @@
 			<nav class="navbar-collapse clearfix" role="navigation">
 				<!-- Main navigation -->
 				<ul id="headernavigation" class="nav navbar-nav">
-					<li class="active"><a href="#top-section">Home</a></li>
-					<li><a href="#welcome">About</a></li>
-					<li><a href="#our-menus">Menu</a></li>
-					<li><a href="#events">Events</a></li> 
+					<li class="active"><a href="#top-section">Главная</a></li>
+					<li><a href="#welcome">О нас</a></li>
+					<li><a href="#our-menus">Меню</a></li>
+					<li><a href="#events">Новости</a></li> 
 					{% if user.is_authenticated %}
-					<p>Welcome {{ user.username }} !!!</p>
+					<li><p>Личный кабинет | {{ user.username }}</p></li>
+					<ul class="sub-menu">
+						<li><a href="#">Адрес доставки</a></li>
+						<li><a href="#">Изменить пароль</a></li> 
+						<li><a href="#">Выйти с аккаунта</a></li>  
+					</ul><!-- /.sub-menu -->
 					{% else %}
-					<li><a href="{% provider_login_url 'github' %}">Sign Up</a></li>
+					<li><a href="{% provider_login_url 'github' %}">Войти - Github</a></li>
+					<li><a href="{% provider_login_url 'google' %}">Войти - Google</a></li>
 					{% endif %}
-					<li class="menu-item-has-children">
-						<a href="#blog">Blog</a>
-						<ul class="sub-menu">
-							<li><a href="blog-page.html">Blog Page</a></li>
-							<li><a href="single-page.html">Single Page</a></li> 
-							<li><a href="our-menu.html">Our Menu</a></li>  
-							<li><a href="404.html">404 Page</a></li> 
-						</ul><!-- /.sub-menu -->
-					</li><!-- /.menu-item-has-children --> 
-					<li><a href="#our-crew">Team</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="#our-crew">Наша команда</a></li>
+					<li><a href="#contact">Связаться с нами</a></li>
+					<li><a href="#">Помощь</a></li> 
 				</ul> <!-- /.nav .navbar-nav -->
 			</nav> <!-- /.navbar-collapse  --> 
 
@@ -95,29 +93,29 @@
 							</ol><!-- /.carousel-indicators -->
 							<div class="carousel-inner">
 								<div class="item active">
-									<h3 class="top-heading-1"> Embrace With </h3> 
+									<h3 class="top-heading-1"> AS </h3> 
 									<h3 class="top-heading-2"> Foody Love  </h3>
 									<h3 class="top-heading-3"> The perfect place for food lover. </h3> 
 									<div class="btn-container">
-										<a href="#" class="btn btn-sm btn-light-green">Learn More</a>
+										<a href="#" class="btn btn-sm btn-light-green">Перейти к инструкции</a>
 									</div><!-- /.btn-container -->
 								</div><!-- /.item -->
 
 								<div class="item"> 
-									<h3 class="top-heading-1"> Cheer up With</h3> 
+									<h3 class="top-heading-1"> AS</h3> 
 									<h3 class="top-heading-2"> Real Time Test </h3>
 									<h3 class="top-heading-3"> The perfect Test for food lover. </h3> 
 									<div class="btn-container">
-										<a href="#" class="btn btn-sm btn-light-green">Learn More</a>
+										<a href="#" class="btn btn-sm btn-light-green">Перейти к инструкции</a>
 									</div><!-- /.btn-container -->
 								</div><!-- /.item -->
 
 								<div class="item"> 
-									<h3 class="top-heading-1">Enjoy With </h3> 
+									<h3 class="top-heading-1">AS </h3> 
 									<h3 class="top-heading-2"> Friend & Family </h3>
 									<h3 class="top-heading-3"> The perfect place for Enjoyment.</h3> 
 									<div class="btn-container">
-										<a href="#" class="btn btn-sm btn-light-green">Learn More</a>
+										<a href="#" class="btn btn-sm btn-light-green">Перейти к инструкции</a>
 									</div><!-- /.btn-container -->
 								</div><!-- /.item -->
 
@@ -147,7 +145,7 @@
 				<section id="welcome">
 					<div class="welcome-section section-padding">
 						<div class="section-title-container">
-							<h2 class="section-title">Welcome</h2>
+							<h2 class="section-title">Добро пожаловать!</h2>
 						</div><!-- /.section-title-container -->
 
 						<div class="row">
@@ -161,7 +159,7 @@
 										</div><!-- /.welcome-hex -->
 										<h3 class="welcome-title"> Delicious Food </h3> 
 										<p class="welcome-texts">
-											Oreo Cookie Pancakes, Mac ‘n’ Cheese Burger, Fried Nutella Banana Hand Pies,Bacon- Egg and Cheese Eggo Waffle Sandwich and delicious food available.
+											...
 										</p><!-- /.welcome-texts -->
 									</div><!-- /.welcome-post -->
 								</div><!-- /.item -->
@@ -174,9 +172,9 @@
 												<i class="fa fa-birthday-cake"></i>
 											</span><!-- /.hex-icon -->
 										</div><!-- /.welcome-hex -->
-										<h3 class="welcome-title"> Great Taste </h3>
+										<h3 class="welcome-title"> Fresh </h3>
 										<p class="welcome-texts">
-											Having a well-educated staff and customer flow are important elements when launching a flexible-format service model. We work together and try out best.
+											...
 										</p><!-- /.welcome-texts -->
 									</div><!-- /.welcome-post -->							
 								</div><!-- /.item -->
@@ -191,7 +189,7 @@
 										</div><!-- /.welcome-hex -->
 										<h3 class="welcome-title"> TopClass Service </h3> 
 										<p class="welcome-texts">
-											Having a well-educated staff and customer flow are important elements when launching a flexible-format service model. We work together and try out best. 
+											...
 										</p><!-- /.welcome-texts -->
 									</div><!-- /.welcome-post -->
 								</div><!-- /.item -->
@@ -203,9 +201,9 @@
 							<div class="best-deal-content">
 								<div class="row">
 									<div class="col-sm-6 pull-right">
-										<h3 class="deal-txt-1"> Best Deal </h3>
-										<h3 class="deal-txt-2"> Chicken Fry + Beef Grills  </h3>
-										<h4 class="deal-txt-3"> Only @ <span>$25</span> </h4>
+										<h3 class="deal-txt-1"> Вперёд в будущее! </h3>
+										<h3 class="deal-txt-2"> AS - помощь новым невестам  </h3>
+										<h4 class="deal-txt-3"> Мы за <span>AS</span> </h4>
 									</div><!-- /.col-sm-6 -->
 								</div><!-- /.row -->
 							</div><!-- /.best-deal-content -->
@@ -222,7 +220,7 @@
 				<section id="our-menus">
 					<div class="our-menu section-padding">
 						<div class="section-title-container">
-							<h2 class="section-title">Our Menus</h2>
+							<h2 class="section-title">Меню ресторанов</h2>
 						</div><!-- /.section-title-container -->
 
 						<div class="row">
@@ -232,10 +230,10 @@
 										<img src="{% static 'images/menus/breakfast.jpg' %}" alt="Breakfast Menus Image"> 
 										<a href="{% static 'images/menus/breakfast-big.jpg' %}" class="boxer img-link"></a>
 									</div><!-- /.featured-img -->
-									<h4 class="item-title"> Breakfast </h4>
+									<h4 class="item-title"> Sushi you </h4>
 									<div class="item-entry">
 										<p>
-											Bake English muffins to create a crispier version of classic French toast. Layer muffin halves with tart lemon sugar and strawberries,with more berries.
+											...
 										</p>
 									</div><!-- /.item-entry -->
 								</article><!-- /.menus-container -->
@@ -247,10 +245,10 @@
 										<img src="{% static 'images/menus/lunch.jpg' %}" alt="Lunch Menus Image">
 										<a href="{% static 'images/menus/lunch-big.jpg' %}" class="boxer img-link"></a>
 									</div><!-- /.featured-img -->
-									<h4 class="item-title"> Lunch </h4>
+									<h4 class="item-title"> Breadberry </h4>
 									<div class="item-entry">
 										<p>
-											Peppery watercress is a perfect counterpoint to the bold flavors of the dressing on this super-size and satisfying sandwich. Perfect for your today lunch. 
+											...
 										</p>
 									</div><!-- /.item-entry -->
 								</article><!-- /.menus-container -->
@@ -262,10 +260,10 @@
 										<img src="{% static 'images/menus/desert.jpg' %}" alt="Desert Menus Image">
 										<a href="{% static 'images/menus/desert-big.jpg' %}" class="boxer img-link"></a>
 									</div><!-- /.featured-img -->
-									<h4 class="item-title"> Desert </h4>
+									<h4 class="item-title"> SteakHouse </h4>
 									<div class="item-entry">
 										<p>
-											Thinly sliced apples create rich, moist layers of fruit within the cake. Top with your choice of Browned Butter Frosting, Cream Cheese Frosting.
+											...
 										</p>
 									</div><!-- /.item-entry -->
 								</article><!-- /.menus-container -->
@@ -273,7 +271,7 @@
 
 						</div><!-- /.row -->
 						<div class="btn-container">
-							<a href="our-menu.html" class="btn btn-sm btn-orange">See Full Menu</a>
+							<a href="#" class="btn btn-sm btn-orange">Посмотреть все рестораны</a>
 						</div><!-- /.btn-container -->
 
 					</div><!-- /.our-menu -->
@@ -287,7 +285,7 @@
 				<section id="book-table" class="parallax-style">
 					<div class="book-table overlay-light section-padding">
 						<div class="section-title-container">
-							<h2 class="section-title">Book your table </h2>
+							<h2 class="section-title">Собери своё блюдо! </h2>
 						</div><!-- /.section-title-container -->
 
 						<div class="choose-table">
@@ -461,142 +459,7 @@
 				</section><!-- /#mobile-app -->
 				<!-- Mobile App Section End -->
 
-
-
-				<!-- Our Blog Section -->
-				<section id="blog">
-					<div class="blog-section section-padding">
-						<div class="section-title-container">
-							<h2 class="section-title">Our Blog </h2>
-						</div><!-- /.section-title-container -->
-
-						<div class="blog-post-container">
-							<div class="row">
-								<div class="col-sm-6">
-									<article class="post-content wow fadeIn" data-wow-delay=".1s">
-										<div class="post-meta"> 
-											<div class="entry-meta">
-												<div class="entry-date"> 
-													<span class="date">23</span>
-													<span class="month">Oct</span>
-												</div> 
-											</div><!-- /.entry-meta -->
-										</div><!-- /.post-meta -->
-										<div class="featured-img">
-											<img class="blog-post-image" src="images/blog/image-1.jpg" alt="Blog Post Image">
-											<a href="images/blog/big-image.jpg" class="boxer img-link"></a>
-										</div><!-- /.featured-img -->
-										<div class="post-container">
-											<h2 class="post-title">
-												<a href="single-page.html">We provide safe food with delicious menu</a>
-											</h2><!-- /.post-title -->
-											<p class="post-description">
-												When we cook, we not only take on the responsibility of making a delicious meal, but also of ensuring that the food we serve is safe to eat. We always try to keep a clean and delicious menu.
-											</p>
-											<div class="continue-reading pull-left">
-												<a href="blog-single.html">Read More <i class="fa fa-angle-double-right"></i>  </a>
-											</div><!-- /.continue-reading --> 
-										</div><!-- /.post-container -->
-									</article><!-- /.post-content --> 
-								</div><!-- /.col-sm-6 -->
-
-								<div class="col-sm-6">
-									<article class="post-content wow fadeIn" data-wow-delay=".2s">
-										<div class="post-meta"> 
-											<div class="entry-meta">
-												<div class="entry-date"> 
-													<span class="date">12</span>
-													<span class="month">Oct</span>
-												</div> 
-											</div><!-- /.entry-meta -->
-										</div><!-- /.post-meta -->
-										<div class="featured-img">
-											<img class="blog-post-image" src="images/blog/image-2.jpg" alt="Blog Post Image">
-											<a href="images/blog/big-image.jpg" class="boxer img-link"></a>
-										</div><!-- /.featured-img -->
-										<div class="post-container">
-											<h2 class="post-title">
-												<a href="single-page.html">Eggs are most important for breakfast</a>
-											</h2><!-- /.post-title -->
-											<p class="post-description">
-												Eggs are one of the most versatile and important foods on earth and a popular breakfast item in many cultures. Cooking eggs properly can make awesome test on your breakfast and it’s love to all.
-											</p>
-											<div class="continue-reading pull-left">
-												<a href="blog-single.html">Read More <i class="fa fa-angle-double-right"></i>  </a>
-											</div><!-- /.continue-reading --> 
-										</div><!-- /.post-container -->
-									</article><!-- /.post-content --> 
-								</div><!-- /.col-sm-6 -->
-
-								<div class="col-sm-6">
-									<article class="post-content wow fadeIn" data-wow-delay=".1s">
-										<div class="post-meta"> 
-											<div class="entry-meta">
-												<div class="entry-date"> 
-													<span class="date">29</span>
-													<span class="month">Sep</span>
-												</div> 
-											</div><!-- /.entry-meta -->
-										</div><!-- /.post-meta -->
-										<div class="featured-img">
-											<img class="blog-post-image" src="images/blog/image-3.jpg" alt="Blog Post Image">
-											<a href="images/blog/big-image.jpg" class="boxer img-link"></a>
-										</div><!-- /.featured-img -->
-										<div class="post-container">
-											<h2 class="post-title">
-												<a href="single-page.html">We know how to cook &amp; make better Pasta</a>
-											</h2><!-- /.post-title -->
-											<p class="post-description">
-												Dumping noodles into water with powdered cheese doesn’t mean cooking pasta. Pasta can be light, delicate and incredibly flavorful by it’s cooking. You may be become a pasta lover with our cook item.
-											</p>
-											<div class="continue-reading pull-left">
-												<a href="blog-single.html">Read More <i class="fa fa-angle-double-right"></i>  </a>
-											</div><!-- /.continue-reading --> 
-										</div><!-- /.post-container -->
-									</article><!-- /.post-content --> 
-								</div><!-- /.col-sm-6 -->
-
-								<div class="col-sm-6">
-									<article class="post-content wow fadeIn" data-wow-delay=".2s">
-										<div class="post-meta"> 
-											<div class="entry-meta">
-												<div class="entry-date"> 
-													<span class="date">23</span>
-													<span class="month">Sep</span>
-												</div> 
-											</div><!-- /.entry-meta -->
-										</div><!-- /.post-meta -->
-										<div class="featured-img">
-											<img class="blog-post-image" src="images/blog/image-4.jpg" alt="Blog Post Image">
-											<a href="images/blog/big-image.jpg" class="boxer img-link"></a>
-										</div><!-- /.featured-img -->
-										<div class="post-container">
-											<h2 class="post-title">
-												<a href="single-page.html">Do you know Vegetables are most important?</a>
-											</h2><!-- /.post-title -->
-											<p class="post-description">
-												Some people think that Vegetables can not provide better delicious food into our menu item. We provide better cook vegetables and make it delicious for all. Cooking methods can improve it only.
-											</p>
-											<div class="continue-reading pull-left">
-												<a href="blog-single.html">Read More <i class="fa fa-angle-double-right"></i>  </a>
-											</div><!-- /.continue-reading --> 
-										</div><!-- /.post-container -->
-									</article><!-- /.post-content --> 
-								</div><!-- /.col-sm-6 -->
-							</div><!-- /.row -->
-
-							<div class="btn-container">
-								<a href="blog-page.html" class="btn btn-sm btn-orange"> View All Posts </a>
-							</div><!-- /.btn-container -->
-
-						</div><!-- /.blog-post-container --> 
-					</div><!-- /.blog -->
-				</section><!-- /#blog -->
-				<!-- Our Blog Section End -->  
-
-
-
-				
+			
 				<!-- Testimonial Section -->
 				<section id="testimonial" class="parallax-style">
 					<div class="testimonial overlay-normal section-padding">
@@ -691,33 +554,33 @@
 				<section id="our-crew">
 					<div class="our-crew section-padding">
 						<div class="section-title-container">
-							<h2 class="section-title">Our Crew </h2>
+							<h2 class="section-title">Наша команда </h2>
 						</div><!-- /.section-title-container --> 
 						<div class="crew-container">
 							<div class="row">
 								<div id="crew-slider"  class="owl-carousel owl-theme">
 									<div class="item col-xs-12">
 										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.1s">
-											<h4 class="crew-name"> Georgia </h4>
-											<h5 class="crew-designation">Ass Chef</h5>
+											<h4 class="crew-name"> Амина </h4>
+											<h5 class="crew-designation">-</h5>
 											<p class="about-crew">
 												Food Safety is my duty. I have done my course on Food Safety and know how to look after food and keep it fresh.
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
-												<img src="images/crew/01.jpg" alt="Crew Photo">
+												<img src="{% static 'images/crew/Амина.jpg' %}" alt="Crew Photo">
 											</div><!-- /.crew-photo -->
 										</div><!-- /.crew-member-box -->
 									</div><!-- /.item -->
 
 									<div class="item col-xs-12">
 										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.2s">
-											<h4 class="crew-name">Harrison</h4>
-											<h5 class="crew-designation">Ass Chef</h5>
+											<h4 class="crew-name">Муслим</h4>
+											<h5 class="crew-designation">Эксперт</h5>
 											<p class="about-crew">
 												Chicken, Vegetables and Eggs are most important for body. I am Chicken &amp; Poultry, Vegetables and Egg cooking expert. 
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
-												<img src="images/crew/02.jpg" alt="Crew Photo">
+												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
 											</div><!-- /.crew-photo -->
 										</div><!-- /.crew-member-box -->
 									</div><!-- /.item -->
@@ -725,13 +588,27 @@
 
 									<div class="item col-xs-12">
 										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.3s">
-											<h4 class="crew-name">Evelyn</h4>
-											<h5 class="crew-designation">Ass Chef</h5>
+											<h4 class="crew-name">Дени</h4>
+											<h5 class="crew-designation">Лидер</h5>
 											<p class="about-crew">
 												I have done Mastering on Fry Pan and at the same time I know how to make cook delicious pasta sauce.
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
-												<img src="images/crew/03.jpg" alt="Crew Photo">
+												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
+											</div><!-- /.crew-photo -->
+										</div><!-- /.crew-member-box -->
+									</div><!-- /.item -->
+
+
+									<div class="item col-xs-12">
+										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.3s">
+											<h4 class="crew-name">Ахмед</h4>
+											<h5 class="crew-designation">-</h5>
+											<p class="about-crew">
+												I have done Mastering on Fry Pan and at the same time I know how to make cook delicious pasta sauce.
+											</p><!--  /.about-crew -->
+											<div class="crew-photo">
+												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
 											</div><!-- /.crew-photo -->
 										</div><!-- /.crew-member-box -->
 									</div><!-- /.item --> 
@@ -739,59 +616,10 @@
 							</div><!-- /.row -->
 						</div><!-- /.crew-container --> 
 					</div><!-- /.our-crew --> 
+				</div>
 				</section><!-- /#our-crew -->
 				<!-- Our Crew End -->
 
-
-
-
-				<!-- Tweets  -->
-				<div id="tweet" class="parallax-style">
-					<div class="tweet-section overlay-normal section-padding"> 
-						<div class="twitter-icon-container">
-							<div class="hex tweeter-icon">
-								<span class="hex-icon"> <i class="fa fa-twitter"></i> </span>
-							</div><!-- /.tweeter-icon -->
-						</div><!-- /.twitter-icon-container --> 
-						<div id="tweet-slider" class="carousel slide tweet-slider" data-ride="carousel"> 
-							<div class="carousel-inner">
-								<div class="item active">
-									<div class="tweet-details"> 
-										<p class="tweet-description">
-											<a href="https://twitter.com/jewelthemeltd">@jewelthemeltd</a> 
-											#TopClass - Multipurpose Business &amp; Corporate #WordPress Theme has been updated, check out at  http://t.co/Oc2cfugiqE                                    
-										</p><!-- /.tweet-description -->
-									</div><!-- /.tweet-details -->
-								</div><!-- /.item -->
-
-								<div class="item">
-									<div class="tweet-details">
-										<p class="tweet-description">
-											<a href="https://twitter.com/jewelthemeltd">@jewelthemeltd</a> 
-											Our #TopClass #HTML5 template is now in #wordPress version  Check out TopClass WordPress Multipurpose Theme  http://t.co/fEwxJjF5hf                                    
-										</p><!-- /.tweet-description -->
-									</div><!-- /.tweet-details -->
-								</div><!-- /.item --> 
-
-								<div class="item">
-									<div class="tweet-details">
-										<p class="tweet-description">
-											<a href="https://twitter.com/jewelthemeltd">@jewelthemeltd</a> 
-											Our #TopClass #HTML5 template is now in #wordPress version  Check out TopClass WordPress Multipurpose Theme  http://t.co/fEwxJjF5hf                                    
-										</p><!-- /.tweet-description -->
-									</div><!-- /.tweet-details -->
-								</div><!-- /.item -->  
-
-							</div><!-- /.carousel-inner -->
-							<a class="slide-nav left" href="#tweet-slider" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-							<a class="slide-nav right" href="#tweet-slider" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-						</div><!-- /#tweet-slider -->  						
-					</div><!-- /.tweet-section -->
-				</div><!-- /#tweet -->
-				<!-- Tweets End  -->
-
-
-				
 
 				<!-- Contact Us -->
 				<section id="contact">
@@ -799,69 +627,47 @@
 						<div class="section-title-container">
 							<h2 class="section-title">Contact Us </h2>
 						</div><!-- /.section-title-container -->
+                        <form action="" method="post">
+                            {% csrf_token %}
+                        <div class="col-lg-6 col-12">
+                            <form class="custom-form contact-form row" action="" method="post" role="form">
+                                <div class="col-lg-6 col-6">
+                                    <label for="contact-name" class="form-label">ФИО</label>
 
-						<div class="contact-form-container">
-							<div class="row"> 
-								<form action="email.php" method="post" id="contact-form" class="wpcf7-form">
+                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Введите Ваше ФИО" required>
+                                </div>
 
-									<div class="col-sm-5">
-										<input type="text" name="your_name" id="your_name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Your name here">
-										
-																	
-										<input type="email" name="your_email" id="your_email" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" placeholder="Your email here">
-									</div><!-- /.col-sm-5 -->
+                                <div class="col-lg-6 col-6">
+                                    <label for="contact-phone" class="form-label">Номер телефона</label>
 
-									<div class="col-sm-7 contact-form-elements">
-										<textarea name="your_message" id="your_message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" placeholder="Your message here"></textarea>
-									
-										<input id="submit" type="submit" value="Send" class="wpcf7-form-control wpcf7-submit">
-									</div><!-- /.col-sm-7 -->
+                                    <input type="telephone" name="contact-phone" id="contact-phone" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" class="form-control" placeholder="+7 938 000-00-00">
+                                </div>
 
-								</form>
-							</div><!-- /.row -->
-						</div><!-- /.contact-form-container -->
+                                <div class="col-12">
+                                    <label for="contact-email" class="form-label">Email</label>
 
-						<div class="open-close">
-							<h4 class="oc-heading text-center"> We are waiting for you! Visit us</h4>
+                                    <input type="email" name="contact-email" id="contact-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email" required="">
 
-							<div class="row">
-								<div class="col-md-6">
-									<div class="oc-container">
-										<div class="col-sm-7 os-txt-box">
-											<span class="oc-txt">Every Monday to Friday </span>
-										</div>
-										<div class="col-sm-5">
-											<span class="oc-time">09:00 AM - 09:30 PM </span>
-										</div>
-									</div><!-- /.oc-container -->
-								</div><!-- /.oc-container -->
+                                    <label for="contact-message" class="form-label">Сообщение</label>
 
-								<div class="col-md-6">
-									<div class="oc-container">
-										<div class="col-sm-7 os-txt-box">
-											<span class="oc-txt">Every Saturday and Sunday </span>
-										</div>
-										<div class="col-sm-5">
-											<span class="oc-time">11:00 AM - 11:30 PM </span>
-										</div>
-									</div><!-- /.oc-container -->
-								</div><!-- /.oc-container -->
-							</div><!-- /.row -->
-						</div><!-- /.open-close --> 
-					</div><!-- /.contact-section --> 
-				</section><!-- /#contact -->
-				<!-- Contact Us End -->
-
-
-
-				<!-- Google Map Section -->
-				<div id="google-map">
-					<div class="map-container">
-						<div id="googleMaps" class="google-map-container"></div>
-					</div>
-				</div><!-- /#google-map-->
-				<!-- Google Map Section End -->	
-
+                                    <textarea class="form-control" rows="5" id="contact-message" name="contact-message" placeholder="Введите Ваше сообщение"></textarea>
+                                </div>
+                                <br>
+                                <div class="col-lg-5 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Отправить</button>
+                                </div>
+                                <br>
+                                {% for message in messages %}
+                                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{ message | safe }}
+                                </div>
+                                {% endfor %}
+                            </form>
+						</div>
+                    </form>
 			</div><!-- /#main-container -->
 			<!-- Main Container End -->
 
@@ -895,7 +701,7 @@
 
 				<div class="copyrights "> 
 
-					&copy; <a href="#">Foody</a>  2015 - All Rights Reserved <span class="v-line"></span> Developed by <a href="https://jeweltheme.com">Jewel Theme</a>
+					&copy; <a href="#">AS</a>  2021 - All Rights Reserved</a>
 
 				</div><!-- /.copyrights -->
 			</footer><!-- /#footer-section -->
@@ -919,9 +725,6 @@
 
 	<!-- Include JavaScript Functions -->
 	<script src="{% static 'js/functions.js'%}"></script>
-
-	<!-- Google Maps Script  -->
-	<script src="https://maps.google.com/maps/api/js?sensor=true"></script> 
 
 	<!-- Gmap3.js For Static Maps -->
 	<script src="{% static 'js/gmap3.js'%}"></script> 
