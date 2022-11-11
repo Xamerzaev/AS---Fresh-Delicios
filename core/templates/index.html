@@ -292,17 +292,9 @@
 							<form action="#" method="post" class="choose-table-form">
 								<div class="col-sm-4 form-item"> 
 									<select class="form-control">
-										<form method="post" novalidate>
-											{% csrf_token %}
-											<table>
-											  {{ form.as_table }}
-											</table>
-											<div class="btn-container">
-												<button type="submit" class="btn btn-sm btn-light-green">Собрать блюдо</button>											
-												<a href="{% url 'products_changelist' %}"></a>
-										</div><!-- /.btn-container -->
-
-										  </form>
+										{% for entry in items %}
+										<option value="{{ entry.id }}">{{ entry.name }}</option>
+										{% endfor %}
 									</select><!-- /.form-control -->
 
 								</div><!-- /.form-item -->

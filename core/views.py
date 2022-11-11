@@ -1,11 +1,9 @@
 from django.views.generic import TemplateView
-from django.shortcuts import redirect
-from django.views.generic import ListView, CreateView, UpdateView
-from django.urls import reverse_lazy
+from django.shortcuts import redirect, get_object_or_404, render
 
 from django.core.mail import EmailMultiAlternatives
 
-from .models import Products
+# from .models import Product
 
 class Home(TemplateView):
     template_name = 'index.html'
@@ -43,18 +41,11 @@ class Home(TemplateView):
         return redirect('home')
 
 
-class ProductsListView(ListView):
-    model = Products
-    context_object_name = 'products'
+# def selectview(request):
+#    product  = Product.objects.all()
+#    form = request.POST
+#    if request.method == 'POST':
+#       selected_item = get_object_or_404(Product, pk=request.POST.get('product_id'))
 
 
-class ProductsCreateView(CreateView):
-    model = Products
-    fields = ('name')
-    success_url = reverse_lazy('products_changelist')
-
-
-class ProductsUpdateView(UpdateView):
-    model = Products
-    fields = ('name')
-    success_url = reverse_lazy('products_changelist')
+#    return render ('index.html', {'items':product})

@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField("Наименование", max_length=16)
 
     def __str__(self):
