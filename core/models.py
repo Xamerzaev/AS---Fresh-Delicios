@@ -7,3 +7,6 @@ class Products(models.Model):
     name = models.CharField("Наименование", max_length=16)
     unit = models.IntegerField("Единица измерения")
     barcode = models.IntegerField("Штрих-код")
+
+    def __str__(self):
+        return self.name
