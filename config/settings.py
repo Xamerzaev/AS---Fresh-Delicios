@@ -60,7 +60,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         }
-    }
+      }
 }
 
 # config/settings.py
@@ -71,16 +71,16 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
-ACCOUNT_LOGOUT_REDIRECT_URL ='home'
-LOGIN_REDIRECT_URL = 'home' # default to /accounts/profile 
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'  # default to /accounts/profile
 
 ACCOUNT_FORMS = {
-'signup': 'YourProject.forms.CustomSignupForm',
+    'signup': 'YourProject.forms.CustomSignupForm',
 }
 
 MIDDLEWARE = [
@@ -175,8 +175,11 @@ try:
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
     }
-except Exception as e:
+
+
+except Exception:
     pass
+
 
 from decouple import config
 

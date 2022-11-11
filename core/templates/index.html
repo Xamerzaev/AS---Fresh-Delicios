@@ -49,7 +49,7 @@
 					<ul class="sub-menu">
 						<li><a href="#">Адрес доставки</a></li>
 						<li><a href="#">Изменить пароль</a></li> 
-						<li><a href="#">Выйти с аккаунта</a></li>  
+						<li><a href="{% url 'account_logout' %}">Выйти с аккаунта</a></li>  
 					</ul><!-- /.sub-menu -->
 					{% else %}
 					<li><a href="{% provider_login_url 'github' %}">Войти - Github</a></li>
