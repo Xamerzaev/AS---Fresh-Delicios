@@ -1,12 +1,13 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
 import pandas as pd
 from csv import DictReader
-from models import Products
 
+from models import Products
 
 
 def add_data_to_db():

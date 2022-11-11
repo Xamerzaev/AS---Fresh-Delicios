@@ -1,6 +1,3 @@
-import pandas as pd
-from csv import DictReader
-from models import Products
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
@@ -8,6 +5,11 @@ import django
 django.setup()
 
 from django.core.management import call_command
+
+import pandas as pd
+from csv import DictReader
+from models import Products
+
 
 file_path = 'core/scripts/static/products.csv'
 

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("AS_SECRET_KEY", "4854er0832h53DSd724.3--+00wq422wD807080781")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = False
 
-ALLOWED_HOSTS = ['ascompany.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['ascompany.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -79,9 +79,7 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'  # default to /accounts/profile
 
-ACCOUNT_FORMS = {
-    'signup': 'YourProject.forms.CustomSignupForm',
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
