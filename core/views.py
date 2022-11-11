@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
+from django.views.generic import ListView, CreateView, UpdateView
+from django.urls import reverse_lazy
 
 from django.core.mail import EmailMultiAlternatives
 
+from .models import Products
 
 class Home(TemplateView):
     template_name = 'index.html'
@@ -38,3 +41,20 @@ class Home(TemplateView):
         msg.send()
 
         return redirect('home')
+
+
+class ProductsListView(ListView):
+    model = Products
+    context_object_name = 'products'
+
+
+class ProductsCreateView(CreateView):
+    model = Products
+    fields = ('name')
+    success_url = reverse_lazy('products_changelist')
+
+
+class ProductsUpdateView(UpdateView):
+    model = Products
+    fields = ('name')
+    success_url = reverse_lazy('products_changelist')

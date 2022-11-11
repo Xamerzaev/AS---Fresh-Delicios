@@ -292,51 +292,22 @@
 							<form action="#" method="post" class="choose-table-form">
 								<div class="col-sm-4 form-item"> 
 									<select class="form-control">
-										<option value="">Select Dining Space</option>
-										<option value="space-1">Space-1</option>
-										<option value="space-2">Space-2</option>
-										<option value="space-3">Space-3</option>
-										<option value="space-4">Space-4</option>
-										<option value="space-5">Space-5</option>
+										<form method="post" novalidate>
+											{% csrf_token %}
+											<table>
+											  {{ form.as_table }}
+											</table>
+											<div class="btn-container">
+												<button type="submit" class="btn btn-sm btn-light-green">Собрать блюдо</button>											
+												<a href="{% url 'products_changelist' %}"></a>
+										</div><!-- /.btn-container -->
+
+										  </form>
 									</select><!-- /.form-control -->
+
 								</div><!-- /.form-item -->
 
-								<div class="col-sm-4 form-item"> 
-									<select class="form-control">
-										<option value="">Select Occasion</option>
-										<option value="occasion-1">Occasion-1</option>
-										<option value="occasion-2">Occasion-2</option>
-										<option value="occasion-3">Occasion-3</option>
-										<option value="occasion-4">Occasion-4</option>
-										<option value="occasion-5">Occasion-5</option> 
-									</select><!-- /.form-control -->
-								</div><!-- /.form-item -->
 
-								<div class="col-sm-4 form-item"> 
-									<select class="form-control">
-										<option value="">Select Preferred Food</option>
-										<option value="food-item-1">food-item-1</option>
-										<option value="food-item-2">food-item-2</option>
-										<option value="food-item-3">food-item-3</option>
-										<option value="food-item-4">food-item-4</option>
-										<option value="food-item-5">food-item-5</option>
-									</select><!-- /.form-control -->
-								</div><!-- /.form-item -->
-
-								<div class="col-sm-4 form-item"> 
-									<input type="text" class="form-control" name="clients_name" id="clients_name" placeholder="Your Name" required> 	
-								</div><!-- /.form-item -->
-
-								<div class="col-sm-4 form-item"> 
-									<input type="text" class="form-control" name="clients_phone" id="clients_phone" placeholder="Your Phone" required> 	
-								</div><!-- /.form-item -->
-
-								<div class="col-sm-4 form-item"> 
-									<input type="text" class="form-control" name="clients_email" id="clients_email" placeholder="Email Address" required> 	
-								</div><!-- /.form-item -->
-								<div class="btn-container">
-									<button type="submit" class="btn btn-sm btn-light-green">Book Table Now</button>
-								</div><!-- /.btn-container -->
 
 							</form><!-- /.choose-table-form -->
 						</div><!-- /.choose-table --> 
@@ -692,7 +663,7 @@
 
 				<div class="copyrights "> 
 
-					&copy; <a href="#">AS</a>  2021 - All Rights Reserved</a>
+					&copy; <a href="#">AS</a>  2022 - All Rights Reserved</a>
 
 				</div><!-- /.copyrights -->
 			</footer><!-- /#footer-section -->
