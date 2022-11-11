@@ -1,9 +1,7 @@
 from django.views.generic import TemplateView
-from django.views import generic
 from django.shortcuts import redirect
 
 from django.core.mail import EmailMultiAlternatives
-from django.contrib import messages
 
 
 class Home(TemplateView):
