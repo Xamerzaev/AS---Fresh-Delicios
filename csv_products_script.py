@@ -1,4 +1,4 @@
-import os
+# import os
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
 # import django
@@ -21,4 +21,3 @@ for _, row in df.iterrows():
     if row['Наименование']:
         product = Product       (name=row['Наименование'])
         product.save()
-    
