@@ -1,8 +1,12 @@
 from django.views.generic import TemplateView
-from django.shortcuts import redirect, get_object_or_404, render
-
+from django.shortcuts import redirect
 from django.core.mail import EmailMultiAlternatives
+from django.db.models import Q
+from django.http import JsonResponse
+from django.views.generic import ListView
 
+from .models import Dish
+from .forms import ReviewForm
 # from .models import Product
 
 class Home(TemplateView):
@@ -49,3 +53,17 @@ class Home(TemplateView):
 
 
 #    return render ('index.html', {'items':product})
+
+
+class JsonFilterMoviesView(ListView):
+    """Фильтр блюд в json"""
+    def get_queryset(self):
+        queryset = Dish.objects.filter(
+            Q(year__in=self.request.GET.getlist("year")) |
+            Q(genres__in=self.request.GET.getlist("genre"))
+        ).distinct().values("title", "tagline", "url", "poster")
+        return queryset
+
+    def get(self, request, *args, **kwargs):
+        queryset = list(self.get_queryset())
+        return JsonResponse({"movies": queryset}, safe=False)
