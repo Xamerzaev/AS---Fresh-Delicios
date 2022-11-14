@@ -19,5 +19,5 @@ df = df[df['Наименование'].notna()]
 
 for _, row in df.iterrows():
     if row['Наименование']:
-        product = Product       (name=row['Наименование'])
+        product = Product(name=row['Наименование'])
         product.save()

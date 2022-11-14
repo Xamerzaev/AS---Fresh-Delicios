@@ -2,9 +2,11 @@
 <div class="search-bar w3layouts-newsletter">
     <h3 class="sear-head editContent">Поиск блюда</h3>
     <form action="#" method="post" class="d-flex editContent">
+        {% csrf_token %}
+
         <input type="search" placeholder="Введите название..." name="search"
                class="form-control" required="">
-        <button class="btn1 btn"><span class="fa fa-search"
+        <button class="btn1 btn">Найти<span class="fa fa-search"
                                        aria-hidden="true"></span></button>
     </form>
 </div>
@@ -17,7 +19,7 @@
             {% for restaurant in view.get_restaurants %}
                 <li class="editContent">
                     <input type="checkbox" class="checked" name="restaurant" value="{{ restaurant.id }}">
-                    <span class="span editContent">{{ restaurant.title }}</span>
+                    <span class="span editContent">{{ restaurant.name }}</span>
                 </li>
             {% endfor %}
         </ul>
@@ -28,10 +30,10 @@
     <div class="left-side">
         <h3 class="sear-head editContent">Продукты</h3>
         <ul class="w3layouts-box-list">
-            {% for product in view.get_products %}
+            {% for products in view.get_products %}
                 <li class="editContent">
-                    <input type="checkbox" class="checked" name="products" value="{{ dish.products }}">
-                    <span class="span editContent">{{ dish.products }}</span>
+                    <input type="checkbox" class="checked" name="products" value="{{ products.id }}">
+                    <span class="span editContent">{{ products.name }}</span>
                 </li>
             {% endfor %}
         </ul>

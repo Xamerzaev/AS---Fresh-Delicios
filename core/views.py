@@ -10,7 +10,7 @@ from .forms import ReviewForm
 # from .models import Product
 
 
-class GenreYear:
+class RestaranProduct:
     """Рестораны и продукты"""
     def get_restaurants(self):
         return Restaurant.objects.all()
