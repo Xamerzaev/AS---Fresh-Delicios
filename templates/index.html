@@ -1,65 +1,10 @@
-{% load socialaccount %}
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
 
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>AS - Fresh and Delicious</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script src="{% static 'js/modernizr-2.8.0.min.js' %}"></script>
-
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"> 
-	<link href="{% static 'css/linecons-font-style.css' %}" rel="stylesheet">
-	<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">  
-	<link href="{% static 'css/animate.css' %}" rel="stylesheet"/>
-	<link href="{% static 'css/style.css' %}" rel="stylesheet"> 
-	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
-	
-</head>
-<body class="home v2"> 
-
-	<!-- Menu -->
-	<div class="navbar-fixed-top main-menu-continer">
-		<!-- Responsive Navigation -->
-		<button type="button" class="btn menubar-toggle"> 
-			<i class="fa fa-bars"></i>
-		</button> <!-- /.navbar-toggle -->
-
-		<div id="main-menu" class="navbar navbar-default"> 
-			<div class="navbar-header"> 
-				<!-- Logo -->
-				<a class="navbar-brand" href="./">
-					<img src="{% static 'images/logo.png' %}" alt="Foody Logo">
-				</a><!-- /.navbar-brand -->
-			</div> <!-- /.navbar-header -->
-
-			<nav class="navbar-collapse clearfix" role="navigation">
-				<!-- Main navigation -->
-				<ul id="headernavigation" class="nav navbar-nav">
-					<li class="active"><a href="#top-section">Главная</a></li>
-					<li><a href="#welcome">О нас</a></li>
-					<li><a href="#our-menus">Меню</a></li>
-					<li><a href="#events">Новости</a></li> 
-					{% if user.is_authenticated %}
-					<li><p>Личный кабинет | {{ user.username }}</p></li>
-					<ul class="sub-menu">
-						<li><a href="#">Адрес доставки</a></li>
-						<li><a href="#">Изменить пароль</a></li> 
-						<li><a href="{% url 'account_logout' %}">Выйти с аккаунта</a></li>  
-					</ul><!-- /.sub-menu -->
-					{% else %}
-					<li><a href="{% provider_login_url 'github' %}">Войти - Github</a></li>
-					<li><a href="{% provider_login_url 'google' %}">Войти - Google</a></li>
-					{% endif %}
-					<li><a href="#our-crew">Наша команда</a></li>
-					<li><a href="#contact">Связаться с нами</a></li>
-					<li><a href="#">Помощь</a></li> 
-				</ul> <!-- /.nav .navbar-nav -->
-			</nav> <!-- /.navbar-collapse  --> 
+{% block index %}
 
 			<div class="nav-social-btn">
 				<a href="#" class="twitter-btn"><i class="fa fa-twitter-square"></i></a>
@@ -72,10 +17,6 @@
 
 	</div><!-- /.main-menu-continer -->
 	<!-- Menu End --> 
-
-
-
-
 	<div class="container">
 		<div class="row">  
 
@@ -277,10 +218,6 @@
 					</div><!-- /.our-menu -->
 				</section><!-- /#our-menus -->
 				<!-- Our Menus End -->
-
-
-
-
 				<!-- Book Table -->
 				<section id="book-table" class="parallax-style">
 					<div class="book-table overlay-light section-padding">
@@ -289,25 +226,24 @@
 						</div><!-- /.section-title-container -->
 
 						<div class="choose-table">
-							<form action="#" method="post" class="choose-table-form">
-								<div class="col-sm-4 form-item"> 
-									<select class="form-control">
-										{% for entry in items %}
-										<option value="{{ entry.id }}">{{ entry.name }}</option>
-										{% endfor %}
-									</select><!-- /.form-control -->
+							<section class="ab-info-main py-md-5 py-4 editContent"
+								style="padding-left: 3rem; padding-right: 3rem;">
 
-								</div><!-- /.form-item -->
-
-
-
-							</form><!-- /.choose-table-form -->
+								<div class="row">
+								{% block sidebar %}
+									<div class="side-bar col-lg-3">
+								{% endblock sidebar %}
+								{% include 'include/sidebar.html' %}
+								</div>
+								{% block dish %}
+								{% endblock dish %}
+							</div>
+							</div>
+						</section>
 						</div><!-- /.choose-table --> 
 					</div><!-- /.book-table -->
 				</section><!-- /#book-table -->
 				<!-- Book Table  End -->
-
-
 
 				<!-- Events -->
 				<section id="events">
@@ -335,58 +271,6 @@
 									</div><!-- /.event-item -->
 								</div>
 
-								<div class="col-sm-6">
-									<div class="event-item wow fadeIn animated" data-wow-delay="0.2s">
-										<div class="event-img">
-											<img src="{% static 'images/event/event-2.jpg' %}" alt="Event 1">
-										</div><!-- /.event-img -->
-										<div class="event-time">
-											<span class="event-month">September</span>
-											<span class="event-date">23</span>
-											<span class="event-year">2014</span>
-										</div><!-- /.event-time -->
-										<h3 class="event-title">New Year Special</h3>
-										<div class="event-place">
-											<strong>Place:</strong>1612 Collins Street West, Victoria 8007 Australia.
-										</div>
-										<div class="event-time-h"><strong>Time:</strong>7:30pm </div>
-									</div><!-- /.event-item -->
-								</div>
-
-								<div class="col-sm-6">
-									<div class="event-item wow fadeIn animated" data-wow-delay="0.1s">
-										<div class="event-img">
-											<img src="{% static 'images/event/event-3.jpg' %}" alt="Event 1">
-										</div><!-- /.event-img -->
-										<div class="event-time">
-											<span class="event-month">September</span>
-											<span class="event-date">23</span>
-											<span class="event-year">2014</span>
-										</div><!-- /.event-time -->
-										<h3 class="event-title">Autumn Special</h3>
-										<div class="event-place">
-											<strong>Place:</strong>1612 Collins Street West, Victoria 8007 Australia.
-										</div>
-										<div class="event-time-h"><strong>Time:</strong>7:30pm </div>
-									</div><!-- /.event-item -->
-								</div>
-
-								<div class="col-sm-6">
-									<div class="event-item wow fadeIn animated" data-wow-delay="0.2s">
-										<div class="event-img">
-											<img src="{% static 'images/event/event-4.jpg' %}" alt="Event 1">
-										</div><!-- /.event-img -->
-										<div class="event-time">
-											<span class="event-month">September</span>
-											<span class="event-date">23</span>
-											<span class="event-year">2014</span>
-										</div><!-- /.event-time -->
-										<h3 class="event-title">Summer Special</h3>
-										<div class="event-place">
-											<strong>Place:</strong>1612 Collins Street West, Victoria 8007 Australia.
-										</div>
-										<div class="event-time-h"><strong>Time:</strong>7:30pm </div>
-									</div><!-- /.event-item -->
 								</div>
 							</div><!-- /.row --> 
 						</div><!-- /.event-container -->
@@ -422,97 +306,6 @@
 				</section><!-- /#mobile-app -->
 				<!-- Mobile App Section End -->
 
-			
-				<!-- Testimonial Section -->
-				<section id="testimonial" class="parallax-style">
-					<div class="testimonial overlay-normal section-padding">
-						<div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
-							<ol class="carousel-indicators">
-								<li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
-								<li data-target="#testimonial-carousel" data-slide-to="1" class=""></li>
-								<li data-target="#testimonial-carousel" data-slide-to="2" class=""></li>
-							</ol><!-- /.carousel-indicators -->
-							<div class="carousel-inner">
-								<div class="item active">
-									<div class="testimonial-figure">
-										<div class="author-avatar">
-											<img class="img-circle" src="{% static 'images/testimonial-carousel/01.png' %}" alt="carousel image">
-										</div><!-- /.author-avatar --> 
-										<div class="authors-review">
-											<p class="author-says">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quam consectetur deserunt delectus, maxime natus aperiam libero molestiae beatae
-											</p><!-- /.author-says -->
-											<div class="given-stars">
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star-half-o"></i></span>
-											</div><!-- /.given-stars --> 
-											<div class="author-and-ulr">
-												<h4 class="author-name"> Max Sherman  </h4> 
-												<a href="#" class="author-website">www.companyname.com</a> 
-											</div> <!-- /.author-and-ulr --> 
-										</div><!-- /.authors-review --> 
-									</div><!-- /.testimonial-figure -->
-								</div><!-- /.item --> 
-
-								<div class="item">
-									<div class="testimonial-figure">
-										<div class="author-avatar">
-											<img class="img-circle" src="{% static 'images/testimonial-carousel/01.png' %}" alt="carousel image">
-										</div><!-- /.author-avatar --> 
-										<div class="authors-review">
-											<p class="author-says">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quam consectetur deserunt delectus, maxime natus aperiam libero molestiae beatae
-											</p><!-- /.author-says -->
-											<div class="given-stars">
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star-o"></i></span>
-											</div><!-- /.given-stars --> 
-											<div class="author-and-ulr">
-												<h4 class="author-name"> Max Sherman  </h4> 
-												<a href="#" class="author-website">www.companyname.com</a> 
-											</div> <!-- /.author-and-ulr --> 
-										</div><!-- /.authors-review --> 
-									</div><!-- /.testimonial-figure -->
-								</div><!-- /.item -->
-
-								<div class="item">
-									<div class="testimonial-figure">
-										<div class="author-avatar">
-											<img class="img-circle" src="images/testimonial-carousel/01.png" alt="carousel image">
-										</div><!-- /.author-avatar --> 
-										<div class="authors-review">
-											<p class="author-says">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quam consectetur deserunt delectus, maxime natus aperiam libero molestiae beatae
-											</p><!-- /.author-says -->
-											<div class="given-stars">
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star"></i></span>
-												<span><i class="fa fa-star-half-o"></i></span>
-											</div><!-- /.given-stars --> 
-											<div class="author-and-ulr">
-												<h4 class="author-name"> Max Sherman  </h4> 
-												<a href="#" class="author-website">www.companyname.com</a> 
-											</div> <!-- /.author-and-ulr --> 
-										</div><!-- /.authors-review --> 
-									</div><!-- /.testimonial-figure -->
-								</div><!-- /.item -->
-							</div><!-- /.carousel-inner -->
-						</div><!-- /#testimonial-carousel --> 
-					</div><!-- /.testimonial -->
-				</section><!-- /#testimonial -->
-				<!-- Testimonial Section End -->
-
-
-				
-
 				<!-- Our Crew -->
 				<section id="our-crew">
 					<div class="our-crew section-padding">
@@ -525,9 +318,9 @@
 									<div class="item col-xs-12">
 										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.1s">
 											<h4 class="crew-name"> Амина </h4>
-											<h5 class="crew-designation">-</h5>
+											<h5 class="crew-designation">Генератор идей</h5>
 											<p class="about-crew">
-												Food Safety is my duty. I have done my course on Food Safety and know how to look after food and keep it fresh.
+												Амина - этим всё сказано
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
 												<img src="{% static 'images/crew/Амина.jpg' %}" alt="Crew Photo">
@@ -540,7 +333,7 @@
 											<h4 class="crew-name">Муслим</h4>
 											<h5 class="crew-designation">Эксперт</h5>
 											<p class="about-crew">
-												Chicken, Vegetables and Eggs are most important for body. I am Chicken &amp; Poultry, Vegetables and Egg cooking expert. 
+												Эксперт = еврей 
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
 												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
@@ -554,7 +347,7 @@
 											<h4 class="crew-name">Дени</h4>
 											<h5 class="crew-designation">Лидер</h5>
 											<p class="about-crew">
-												I have done Mastering on Fry Pan and at the same time I know how to make cook delicious pasta sauce.
+												Босс, а не лидер
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
 												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
@@ -566,9 +359,9 @@
 									<div class="item col-xs-12">
 										<div class="crew-member-box wow fadeIn animated" data-wow-delay="0.3s">
 											<h4 class="crew-name">Ахмед</h4>
-											<h5 class="crew-designation">-</h5>
+											<h5 class="crew-designation">Реализатор</h5>
 											<p class="about-crew">
-												I have done Mastering on Fry Pan and at the same time I know how to make cook delicious pasta sauce.
+												Ахмед >>> весь мир
 											</p><!--  /.about-crew -->
 											<div class="crew-photo">
 												<img src="{% static 'images/crew/2.png' %}" alt="Crew Photo">
@@ -622,12 +415,9 @@
 								</div>
 							</div>
 						</form>
+					</section>
 			</div><!-- /#main-container -->
 			<!-- Main Container End -->
-
-
-
-
 
 			<!-- Side Bar -->
 			<div id="left-sidebar" class="left-sidebar pull-left">
@@ -635,132 +425,11 @@
 			</div><!-- /#left-sidebar -->
 			<!-- Side Bar End --> 
 
-
-
-
 			<div id="scroll-to-top">
 				<div class="go-to-top"> 
 					<i class="fa fa-angle-double-up"></i>  
 				</div><!-- /.go-to-top -->
 			</div><!-- /#scroll-to-top -->
+{% endblock index %}
 
-
-			<!-- Footer Section -->
-			<footer id="footer-section" class="main-container pull-right"> 
-				<div class="go-top">
-					<span class="go-to-up">
-						<i class="fa fa-angle-double-up"></i>
-					</span><!-- /.go-to-up -->
-				</div><!-- /.go-top -->
-
-				<div class="copyrights "> 
-
-					&copy; <a href="#">AS</a>  2022 - All Rights Reserved</a>
-
-				</div><!-- /.copyrights -->
-			</footer><!-- /#footer-section -->
-			<!-- Footer Section End -->
-
-
-		</div><!-- /.row --> 
-	</div><!-- /.container -->  
-
-	<!-- Include jquery.min.js plugin -->
-	<script src="{% static 'js/jquery-2.1.0.min.js'%}"></script>
-
-	<!-- Include JavaScript Plugins -->
-	<script src="{% static 'js/plugins.js'%}"></script>
-
-	<!-- Include jquery.parallax.js Plugins -->
-	<script src="{% static 'js/jquery.parallax.js'%}"></script>
-
-	<!-- Include wow.js Plugins -->
-	<script src="{% static '/js/wow.min.js'%}"></script> 
-
-	<!-- Include JavaScript Functions -->
-	<script src="{% static 'js/functions.js'%}"></script>
-
-	<!-- Gmap3.js For Static Maps -->
-	<script src="{% static 'js/gmap3.js'%}"></script> 
-
-	<script type="text/javascript"> 
-
-		/*----------- Google Map - with support of gmaps.js ----------------*/
-
-		function isMobile() { 
-			return ('ontouchstart' in document.documentElement);
-		}
-
-		function init_gmap() {
-			if ( typeof google == 'undefined' ) return;
-			var options = {
-				center: [53.599339, 10.172954],
-				zoom: 15,
-				mapTypeControl: true,
-				mapTypeControlOptions: {
-					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-				},
-				navigationControl: true,
-				scrollwheel: false,
-				streetViewControl: true
-			}
-
-			if (isMobile()) {
-				options.draggable = false;
-			}
-
-			$('#googleMaps').gmap3({
-				map: {
-					options: options
-				},
-				marker: {
-					latLng: [53.599339, 10.172954],
-					options: { icon: 'assets/images/mapicon.png' }
-				}
-			});
-		}
-
-		init_gmap();
-
-
-
-
-		jQuery(document).ready(function($) {
-			"use strict";
-
-			/*---------------------- Current Menu Item -------------------------*/
-			$('#main-menu #headernavigation').onePageNav({
-				currentClass: 'active',
-				changeHash: false,
-				scrollSpeed: 750,
-				scrollThreshold: 0.5,
-				scrollOffset: 0,
-				filter: ':not(.sub-menu a, .not-in-home)',
-				easing: 'swing',
-				begin: function() {
-					$('body').append('<div id="device-dummy" style="height: 1px;"></div>');
-				},
-				end: function() {
-					$('#device-dummy').remove();
-				}
-			}); 
-			
-		});
-		// document ready function End
-		
-		$("#contact-form").on("submit", function(e){
-			e.preventDefault();
-			$this = $(this);
-			$.ajax({
-				type: "POST",
-				url: $this.attr('action'),
-				data: $this.serialize(),
-				success : function(){
-					alert('Message Sent Successfully');
-				}
-			});
-		});
-
-	</script>
-</body>
-</html>
+{% endblock content %}

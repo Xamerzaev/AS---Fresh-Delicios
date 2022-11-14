@@ -3,22 +3,12 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from .models import Dish, Rating, RatingStar, Reviews, Restaurant
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
     """Рестораны"""
     list_display = ("id", "name")
-
-
-class DishAdminForm(forms.ModelForm):
-    """Форма с виджетом ckeditor"""
-    description = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
-
-    class Meta:
-        model = Dish
-        fields = '__all__'
 
 
 class ReviewInline(admin.TabularInline):
@@ -39,19 +29,8 @@ class DishAdmin(admin.ModelAdmin):
     save_as = True
     list_editable = ("draft",)
     actions = ["publish", "unpublish"]
-    form = DishAdminForm
     readonly_fields = ("get_image",)
-    fieldsets = (
-        (None, {
-            "fields": (("title", "products", "restaurant"),)
-        }),
-        (None, {
-            "fields": ("description", ("poster", "get_image"))
-        }),
-        ("Options", {
-            "fields": (("url", "draft"),)
-        }),
-    )
+
 
     def get_image(self, obj):
         return mark_safe(f'<img src={obj.poster.url} width="100" height="110"')

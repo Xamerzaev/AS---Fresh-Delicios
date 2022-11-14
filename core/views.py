@@ -5,9 +5,19 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.views.generic import ListView
 
-from .models import Dish
+from .models import Dish, Product, Restaurant
 from .forms import ReviewForm
 # from .models import Product
+
+
+class GenreYear:
+    """Рестораны и продукты"""
+    def get_restaurants(self):
+        return Restaurant.objects.all()
+
+    def get_products(self):
+        return Product.objects.all()
+
 
 class Home(TemplateView):
     template_name = 'index.html'
@@ -59,11 +69,11 @@ class JsonFilterMoviesView(ListView):
     """Фильтр блюд в json"""
     def get_queryset(self):
         queryset = Dish.objects.filter(
-            Q(year__in=self.request.GET.getlist("year")) |
-            Q(genres__in=self.request.GET.getlist("genre"))
-        ).distinct().values("title", "tagline", "url", "poster")
+            Q(products__in=self.request.GET.getlist("products")) |
+            Q(restaurant__in=self.request.GET.getlist("restaurant"))
+        ).distinct().values("title", "url", "image")
         return queryset
 
     def get(self, request, *args, **kwargs):
         queryset = list(self.get_queryset())
-        return JsonResponse({"movies": queryset}, safe=False)
+        return JsonResponse({"dishes": queryset}, safe=False)

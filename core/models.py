@@ -8,7 +8,6 @@ class Product(models.Model):
         return self.name
 
 
-
 class Restaurant(models.Model):
     """Рестораны"""
     name = models.CharField("Ресторан", max_length=150)
@@ -62,7 +61,7 @@ class Rating(models.Model):
     dish = models.ForeignKey(Dish, on_delete=models.CASCADE, verbose_name="блюдо")
 
     def __str__(self):
-        return f"{self.star} - {self.movie}"
+        return f"{self.star} - {self.dish}"
 
     class Meta:
         verbose_name = "Рейтинг"
